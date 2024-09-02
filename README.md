@@ -6,6 +6,25 @@ This repository contains custom JavaScript code for use in Elementor to manage d
 - Disabling Sundays.
 - Setting a 14-day date selection limit.
 
+# How to Use
+Add Custom Code in Elementor:
+
+- Navigate to Elementor -> Custom Code.
+- Create a new custom code block.
+- Paste the first script for date range and past days limitation.
+- Create another custom code block for the Sunday disabling script.
+- Set the location to "End" and ensure "Always load jQuery" is checked.
+
+# Verify Implementation:
+
+- Ensure that past dates are disabled.
+- Verify that Sundays are greyed out and non-selectable.
+- Confirm that the date selection range is limited to 14 days from today.
+
+# Notes
+- Ensure that the ID form-field-date_selector matches the ID used in your date picker field. Please use the inspect tool on your browser to ensure this.
+- Adjust the scripts as needed based on your specific setup or requirements.  
+
 ## Code Overview
 
 ### 1. Date Range Limitation and Past Days Disablement
