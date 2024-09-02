@@ -1,5 +1,18 @@
-This is the code that I added on Elementor -> Custom code that allowed me to disable past days, Sundays, and 14-day limit. After you create the code, please make sure you select Location - - End and Always load jQuery is checked
+# Elementor Date Picker Custom Code
 
+This repository contains custom JavaScript code for use in Elementor to manage date picker functionality. Specifically, it handles the following:
+
+- Disabling past days.
+- Disabling Sundays.
+- Setting a 14-day date selection limit.
+
+## Code Overview
+
+### 1. Date Range Limitation and Past Days Disablement
+
+The following script is added in Elementor under "Custom Code". It ensures that the date picker field cannot select past dates and limits the selectable range to 14 days from today.
+
+```html
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var today = new Date();
@@ -33,36 +46,5 @@ This is the code that I added on Elementor -> Custom code that allowed me to dis
                 }
             });
         }
-    });
-</script>
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Function to disable Sundays
-        function disableSundays() {
-            var dateInput = document.getElementById('form-field-date_selector');
-            if (!dateInput) return;
-
-            // Ensure Flatpickr instance is available
-            var calendarContainer = dateInput._flatpickr?.calendarContainer;
-            if (!calendarContainer) return;
-
-            calendarContainer.querySelectorAll('.flatpickr-day').forEach(function(day) {
-                var date = new Date(day.getAttribute('aria-label'));
-                if (date.getDay() === 0) { // 0 = Sunday
-                    day.classList.add('disabled'); // Add 'disabled' class
-                }
-            });
-        }
-						// Try applying the class after Flatpickr initialization
-        function attemptDisableSundays() {
-            if (document.querySelector('.flatpickr-calendar')) {
-                disableSundays();
-            } else {
-                setTimeout(attemptDisableSundays, 100); // Retry after a delay
-            }
-        }
-        attemptDisableSundays();
     });
 </script>
